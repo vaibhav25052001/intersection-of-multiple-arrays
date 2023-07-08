@@ -1,0 +1,28 @@
+class Solution {
+    private:
+    bool isSafe(int a,vector<vector<int>>&nums){
+        int count=0;
+        for(int i=1;i<nums.size();i++){
+          for(int j=0;j<nums[i].size();j++){
+              if(a==nums[i][j])
+              count++;
+          }
+        }
+        if(count==nums.size()-1)
+        return true;
+        else
+        return false;
+    }
+public:
+    vector<int> intersection(vector<vector<int>>& nums) {
+        vector<int>ans;
+        for(int i=0;i<1;i++){
+            for(int j=0;j<nums[i].size();j++){
+              if(isSafe(nums[i][j],nums))
+              ans.push_back(nums[i][j]);
+            }
+        }
+        sort(ans.begin(),ans.end());
+        return ans;
+    }
+};
